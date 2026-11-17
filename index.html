@@ -1,319 +1,161 @@
-
-<!-- saved from url=(0034)https://www.cs.cmu.edu/~112/z.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-
-    <!--
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-    -->
-    
-    <!-- <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
-    
-    <style>
-        body{
-            padding-top: 60px;
-            padding-bottom: 40px;
-            background-color: #9cd9cf;
-        }
-        body, p, div {
-        font-family: Arial, Helvetica, sans-serif;
-        }
-        .fixed-header, .fixed-footer{
-            width: 100%;
-            position: fixed;
-            padding: 10px 0;
-            color: #fff;
-        font-size: 16px;
-        }
-        .fixed-header{
-            top: 0;
-            background: #109c85;
-        }
-        .fixed-footer{
-            bottom: 0;
-            background: #109c85;
-        }
-    </style>
-
-<script>
-
-    var fontSize = 16;
-    
-    function clearSelection() {
-     if (window.getSelection) {window.getSelection().removeAllRanges();}
-     else if (document.selection) {document.selection.empty();}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyle D. Chin</title>
+  <style>
+    body {
+      font-family: serif;
+      max-width: 720px;
+      margin: 60px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #111;
     }
-    function setFontSize(fontSize) {
-        var body = document.getElementsByTagName("BODY")[0];
-        body.style.fontSize = fontSize + 'pt';
-        clearSelection();
+    h1 { margin-bottom: 4px; }
+    h2 {
+      margin-top: 2em;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
     }
-    function onBodyLoaded() {
-        setFontSize(fontSize);
-    }
-    function makeBigger() {
-        fontSize += 2;
-        setFontSize(fontSize);
-    }
-    function makeSmaller() {
-        if (fontSize > 8) {
-            fontSize -= 2;
-            setFontSize(fontSize);
-        }
-    }
-    
-    function cycleFontSize() {
-        fontSize += 3;
-        if (fontSize > 40) fontSize = 16;
-        setFontSize(fontSize);
-    }
-    
-    // disable pinch-zoom mostly, but not on iOS while scrolling (sigh)
-    document.addEventListener("touchstart", event => {
-        if(event.touches.length > 1) {
-            event.preventDefault();
-            event.stopPropagation(); // maybe useless
-        }
-    }, {passive: false});
-    
-    function onClick(event) {
-        // cycleFontSize();
-        if (event.x < 200) makeSmaller();
-        else makeBigger();
-    }
-    
-    document.addEventListener('click', onClick, true);
-    
-    </script>
-    </head>
-    <body style="font-size: 18pt;">
-    <div class="fixed-header"> <center>Quiz 1</center> </div> 
-    
-   
-    <h2>Quiz1 Version C</h2>
-    <hr>
-    
-    <br><b>Important notes:</b>
-    
-    <ol>
-    <li> Do not start until you are instructed to do so!</li>
-    <li> We suggest you do not use your browser's zoom feature.  Instead...
-      <ul>
-      <li> Click near left edge to make font smaller.</li>
-      <li> Click near right edge to make font bigger.</li>
-      </ul>
-    </li>
-    <li>You will have 55 minutes once the proctor says to start.</li>
-    <li>You will have a few minutes of additional time after we stop to scan and submit your solutions.</li>
-    <br>
-    <li>Just before the quiz...
-    <ol>
-    <li>Have a fully-charged smartphone and laptop, and still plug both in if possible
-    </li><li>Log into Gradescope on your phone
-    </li><li>Change the screen timeout setting on your phone to never, so your screen doesn't go
-    black if you don't interact with your screen for a while.
-    <ul>
-    <li>iPhones: Settings / Display &amp; Brightness / Auto-Lock / Never
-    </li><li> Android: Settings / Display / Screen timeout / 10 minutes (or the maximum
-    amount of time)
-    </li>
-    </ul>
-    </li><li>Turn on Do Not Disturb (or otherwise turn off all notifications).
-    </li><li>Position your webcam so we can see:
-    <ul>
-    <li>Your desk
-    </li><li>The paper you are working on
-    </li><li>Your writing utensil(s)
-    </li><li>Both of your hands
-    </li><li>Your phone
-    </li>
-    </ul></li></ol>
-    </li>
-    
-    <br>
-    <li>During the quiz:
-    <ol>
-    <li> You may not ask questions during the exam.
-    <ul><li>If you are unsure how to interpret a problem, take your best guess.</li></ul>
-    </li><li>You may not touch your laptop or webcam.
-    <ul><li>This includes muting yourself at any point; the proctors may mute you though.</li></ul>
-    </li><li> All of these must be visible at all times:
-    <ul>
-    <li>Your desk
-    </li><li>The paper you are working on
-    </li><li>Your writing utensil(s)
-    </li><li>Both of your hands
-    </li><li>Your phone, with the quiz webpage
-    </li></ul>
-    </li><li>For any tech fails (laptop or internet stops working, etc.):
-    <ol>
-    <li>Stop taking the quiz
-    </li><li>Immediately email swenger@andrew.cmu.edu
-    </li><li>We will email you soon to set up a 1-on-1 oral quiz with the course faculty
-    </li></ol></li>
-    
-    </ol>
-    </li>
-    
-    <br>
-    <li>After the quiz:
-    <ol>
-    <li>Follow all proctor instructions on how to end the quiz.
-    </li><li>Keep everything in view (as noted above) until the proctor calls "time".
-    </li><li>When instructed, use your phone to scan your quiz and submit the PDF to Gradescope.
-    </li><li>After submitting to Gradescope, hold your phone up to the webcam to show the receipt.
-    </li><li>Even then, remain in quiz mode until the proctor calls "all clear"
-    </li>
-    </ol>
-    </li>
-    
-    </ol>
-    <hr>
-    <div>
-    <br><b>1. Short Answer [10 points]</b><br><br>
-    <ol>
-        <li>List two course resources or events where you can get help on an assignment.</li>
-        <li>True or False: debugging code with your collaboration partner over Zoom is an example of good collaboration.</li>
-        <li>Lisanne wrote a program with a syntax error, runtime error, and logical error in it. Which error did Python raise first?</li>
-        <li>What is the length of this string: <code>"at\t b\n"?</code></li>
-        <li>What is <code>23456//100%10</code>?</li>
-        <li>Solve this one-liner RC: <code>def rc(n): return round(n) != roundHalfUp(n)</code></li>
-    </ol>
-    <hr>
+    a { color: #111; }
+    .subtitle { color: #555; margin-top: 0; }
+    .links { margin: 10px 0 24px; }
+    .links a { margin-right: 14px; }
+    .pub { margin-bottom: 1.4em; }
+    .pub .title { font-weight: bold; }
+    .pub .venue { color: #555; font-style: italic; }
+    .pub .note { color: #555; font-size: 0.95em; margin-top: 2px; }
+    .teaching-entry { margin-bottom: 1em; }
+    .teaching-entry .role { font-weight: bold; }
+    .teaching-entry .meta { color: #555; }
+  </style>
+</head>
+<body>
 
-    <br><b>2. haveCommonSquareFactors(x, y) [20 points]</b><br><br>
-    Definitions:
-    <ol>
-        <li>A common square factor of x and y is a number n such that
-            n is a factor of both x and y, is also a perfect square, and is not
-            1.
-        </li>
-        <li>If you do not remember what a perfect square is, the first few are:
-            1 = 1*1, 4 = 2*2, and 9 = 3*3.
-        </li>
-    </ol>
-    Examples:
-    <ol>
-        <li>36 and 100 have a common square factor of 4</li>
-        <li>36 and 99 have a common square factor of 9</li>
-        <li>36 and 93 DO NOT have a common square factor</li>
-    </ol>
-    With this in mind, write the function haveCommonSquareFactors (abbreviation: haveCSF) which
-    takes two any-valued real numbers x and y, and returns True if they have a
-    common square factor, and False if not. Floats cannot have common factors, 
-    and we will say that 0 has no factors.
-    <br><br>
-    
-    You may not use strings, lists, or recursion on this problem. Additionally,
-    you may not use loops to check if a number is a perfect square, since there
-    is a much faster way to do it without loops!
-    <hr>
-    
-    
-    <br><b>3. longestAlphabetRun(s) [25 points]</b><br><br>
-    An alphabetical string is one in which all of the letters in the string are
-    in increasing-or-equal alphabetical order without skipping any letters in
-    the alphabet. For instance, <code>"mnoopp"</code> is an alphabetical string,
-    but <code>"mmoopp"</code> is not.
-    
-    Write a function longestAlphabetRun (abbreviaton: lar) that takes in an
-    all-lowercase string s and returns the number of unique letters in the
-    longest alphabetical substring of s. If there is a tie in length, then
-    return the number of unique letters in the <em>alphabetically lower
-    one</em>.
+  <h1>Kyle D. Chin</h1>
+  <p class="subtitle">PhD Student, Computer Science &mdash; University of British Columbia</p>
 
-    Examples:
-    <ol>
-        <li>
-            <code>lar("arggghhijklol")</code> returns 6 because the longest
-            alphabetical substring is <code>"ggghhijkl"</code>, which contains 6 unique letters.
-        </li>
-        <li>
-            <code>lar("abbbcdwxyyz")</code> would return 3, since <code>"abbbc"</code> and
-            <code>"wxyyz"</code> both are length 5, so we get the number of unique letters in <code>"abbbc"</code>
-            (even though <code>"wxyyz"</code> has more unique characters).
-        </li>
-    </ol>
+  <div class="links">
+    <a href="https://scholar.google.com/citations?user=hlfib70AAAAJ&hl=en" target="_blank">Google Scholar</a>
+  </div>
 
-    You may assume that all letters in the string are lowercase. (Hint: you can
-    compare strings using <code>&lt;</code> or <code>&gt;</code> just as you would numbers)
+  <section>
+    <p>
+      I am pursuing my PhD in Computer Science at The University of British Columbia, advised by
+      <a href="https://www.cs.ubc.ca/~rtholmes/" target="_blank">Dr. Reid Holmes</a>.
+      I hope to one day catch it.
+      My research sits at the intersection of humans in software engineering and computer science education.
+      I an interested in studying how tools, abstractions, and collaboration support continual learning in software development.
+    </p>
+    <p>
+      Before my PhD, I was a software engineer at a health-AI startup (before it was cool (or not cool)) and completed a double major at Carnegie Mellon University in information systems and computer science.
+    </p>
+  </section>
 
-    <hr>
-    
-    <br><b>4. nthPalindromicNumber(n) [25 points]</b><br><br>
-    A palindromic number is a positive number that is the same forwards and
-    backwards. For example, 1, 22, and 696 are all palindromic numbers.
-    
-    With that in mind, write the functions nthPalindromicNumber(n) (abbreviation: nthPal) and
-    isPalindromicNumber(n) (abbreviation: isPal), which must function properly on its own too!.
+  <h2>Research Interests</h2>
+  <p>
+    Program comprehension &middot; software engineering education &middot; human factors in software development &middot;
+    AI-assisted programming &middot; empirical software engineering
+  </p>
 
-    All single-digit numbers are palindromic, so nthPalindromicNumber(0) = 1.
-    The first double digit palindromic number is 11, and nthPalindromicNumber(9)
-    = 11. You may not use lists or strings in your solution. 
+  <h2>Publications</h2>
 
-    You may find it helpful to write a getKthDigit(n, k) function that returns
-    the kth digit of a number n.
-
-    <hr>
-    <br><b>5. Code Tracing [10 points]</b><br><br>
-    What does the following code print?<br>
-    Be certain to show your work,
-    and also very clearly circle your answer!
-    <pre>def ct(x, y):
-    print("y =", y)
-    while x < 10:
-        for i in range(y):
-            if x == i:
-                print("equal")
-            if x % 2 == 0:
-                x += 1
-            elif x // 5 == 1:
-                x += 5
-            else: 
-                print("i =", i)
-                x += 2
-            print("x =", x)
-        print(x < 10)
-print(ct(0, 2))
-    </pre>
-    <hr>
-    <br><b>6. Reasoning Over Code [10 points]</b><br><br>
-    What input makes the following function return True?
-    Be certain to show your work,
-    and also very clearly circle your answer!
-    
-    <pre>def g(s):
-    x = 0
-    for i in range(len(s)):
-        c = s[i]
-        if c.isdigit():
-            assert(i == 0 or int(c) != x)
-            x += int(c)
-    return x
-    
-def roc(s):
-    if not isinstance(s, str): return False
-    if g(s) != len(s): return False
-    if not s[3:5].isalpha(): return False
-    return "0" not in s and s[2] > s[3]
-    </pre>
-    
-    <hr>
-    <br><b>8. Bonus [2 points]</b><br><br>
-    What input makes the following function return True?
-    Be certain to show your work,
-    and also very clearly circle your answer!
-    
-    <pre>def f(n, c):
-    if n < 0: return c
-    return f(n-1, c+1/2**n)
-
-def bonusRC(n):
-    return almostEqual(n, f(100,0))
-    </pre>
-    
-    <hr>
+  <div class="pub">
+    <div class="title">Put The &ldquo;Code&rdquo; Back in &ldquo;Code Comprehension Study&rdquo;</div>
+    <div><strong>Kyle D. Chin</strong> and Reid Holmes.</div>
+    <div class="venue">International Conference on Program Comprehension (ICPC), 2026.</div>
+    <a href="https://dl.acm.org/doi/10.1145/3794763.3794806" target="_blank">DOI</a>
+    <div class="note">
+      Our current static software metrics do not capture what it means for code to be comprehensible!
     </div>
-    <div class="fixed-footer"> <center>Quiz 1</center> </div>
-    
-    </body></html>
-    
+  </div>
+ 
+
+  <div class="pub">
+    <div class="title">An Exploration of How Generative AI Affects Workflow and Collaboration in a Software Engineering Course</div>
+    <div>Marie Salomon, <strong>Kyle D. Chin</strong>, Reid Holmes, Thomas Fritz, and Gail Murphy.</div>
+    <div class="venue">SPLASH Education Track (SPLASH-E), 2025.</div>
+    <a href="https://doi.org/10.1145/3758317.3759680" target="_blank">DOI</a>
+    <div class="note">
+      Students view and use AI in many different ways!
+    </div>
+  </div>
+
+  <div class="pub">
+    <div class="title">Can Alternative Grading Improve Student Interactions In Automatically Graded Programming Assignments?</div>
+    <div><strong>Kyle D. Chin</strong>, Katharine Kerr, Nick Bradley, and Reid Holmes.</div>
+    <div class="venue">ACM Transactions on Computing Education (TOCE), 2025.</div>
+    <a href="https://doi.org/10.1145/3767736" target="_blank">DOI</a>
+    <div class="note">
+      Leaving ambiguity in automated feedback is actually good for students' learning!
+    </div>
+  </div>
+
+  <h2>Teaching</h2>
+
+  <p>
+    Teaching is one of my greatest passions (in addition to ice cream).
+    I've had the privilege of working with many bright and enthusiastic students and talented educators at UBC and CMU.
+  </p>
+
+  <h3>Instructor of Record</h3>
+  <div class="teaching-entry">
+    <span class="role">CPSC 310: Software Engineering</span><br>
+    <span class="meta">University of British Columbia, Fall 2025; Fall 2026. 400+ students.</span>
+  </div>
+
+  <div class="teaching-entry">
+    <span class="role">15-112: Fundamentals of Programming and Computer Science</span><br>
+    <span class="meta">Carnegie Mellon University, Summer 2020. 80+ students.</span>
+  </div>
+
+  <h3>Head Teaching Assistant</h3>
+
+  <div class="teaching-entry">
+    <span class="role">15-112: Fundamentals of Programming and Computer Science</span><br>
+    <span class="meta">Carnegie Mellon University, Summer 2017; Fall 2018; Spring 2019; Fall 2019; 50+ TAs.</span>
+  </div>
+
+  <div class="teaching-entry">
+    <span class="role">67-272: Application Design and Development</span><br>
+    <span class="meta">Carnegie Mellon University, Spring 2020; 10+ TAs.</span>
+  </div>
+
+  <h3>Teaching Assistant</h3>
+  <div class="teaching-entry">
+    <span class="role">CPSC 310: Software Engineering</span><br>
+    <span class="meta">University of British Columbia, Fall 2023; Spring 2024; Fall 2024.</span>
+  </div>
+
+  <div class="teaching-entry">
+    <span class="role">15-112: Fundamentals of Programming and Computer Science</span><br>
+    <span class="meta">Carnegie Mellon University, Spring 2017; Fall 2017; Spring 2018;</span>
+  </div>
+
+  <div class="teaching-entry">
+    <span class="role">10-601: Introduction to Machine Learning</span><br>
+    <span class="meta">Carnegie Mellon University, Spring 2020.</span>
+  </div>
+
+  <div class="teaching-entry">
+    <span class="role">67-272: Application Design and Development</span><br>
+    <span class="meta">Carnegie Mellon University, Spring 2019.</span>
+  </div>
+
+
+  <h2>Contact</h2>
+  <p>
+    Email ID: kdchin
+    Domain: cs.ubc.ca
+    Department of Computer Science<br>
+    University of British Columbia<br>
+    Vancouver, BC, Canada
+  </p>
+
+  <hr style="margin-top: 3em; border: none; border-top: 1px solid #ccc;">
+  <p style="color: #999; font-size: 0.85em;">Last updated November 2026.</p>
+
+</body>
+</html>
